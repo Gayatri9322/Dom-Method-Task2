@@ -82,10 +82,10 @@ for(let i=0;i<lists.length;i++){
 //
 let list02=document.getElementsByTagName('li')
 cl(list02);
-
+//
 let list03=[...document.getElementsByTagName('li')];
 cl(list03);
-
+//
 let list04=Array.from(document.getElementsByTagName('li'))
 cl(list04);
 
