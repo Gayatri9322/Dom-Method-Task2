@@ -1,124 +1,99 @@
 var cl=console.log;
- 
 
 
-//InnerHtml//
-
+//single selection Methods:
 
 //1//
-let info1= document.getElementById('info1')
-cl(info1);
-let x = info1.innerHTML;
-cl(x);
-//we can change using this 
-info1.innerHTML=`<em>I love web development</em>`;
+let heading1=document.getElementById('heading1');
+cl(heading1);
+
+heading1.style.textAlign='center'
+heading1.style.backgroundColor='yellow'
+heading1.style.borderRadius='80px 20px 80px 20px'
+heading1.style.padding='10px'
+heading1.style.color='grey'
 
 
-//2//
-let info2 = document.getElementById("info2");
-let y=info2.innerHTML;
-cl(y);
-info2.innerHTML = `<strong>I Love JavaScript</strong>`;
+let heading2=document.getElementById('heading2');
+cl(heading2);
 
-//3//
-let info3 = document.getElementById("info3");
-let a=info3.innerHTML;
-cl(a);
-info3.innerHTML = `<em>Welcome to Web Development</em>`;
-
-//4//
-let info4 = document.getElementById("info4");
-let b=info4.innerHTML
-cl(b);
-info4.innerHTML = `<h2>Welcome to DOM</h2>`;
-
-//5//
-let info5 = document.getElementById("info5");
-let c=info5.innerHTML
-cl(c);
-info5.innerHTML = `<u>Learn JavaScript</u>`;
-
-//6//
-let info6 = document.getElementById("info6");
-
-info6.innerHTML = `
-    <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-    </ul>
-`;
-//7//
-let info7 = document.getElementById("info7");
-
-info7.innerHTML =
-    '<a href="https://www.google.com">Visit Google</a>';
+heading2.style.textAlign='center'
+heading2.style.backgroundColor='lightblue'
+heading2.style.borderRadius='80px 20px 80px 20px'
+heading2.style.padding='10px'
+heading2.style.color='grey'
 
 
-//8//
-let info8 = document.getElementById("info8");
-info8.innerHTML = "<button>Click Me</button>";
+let paragraph=document.querySelector('p')
 
-//9//
-let info9 = document.getElementById("info9");
+cl(paragraph)
 
-info9.innerHTML = `
-    <h3>My Skills</h3>
-    <p>HTML and CSS</p>
-`;
+paragraph.style.backgroundColor='pink';
+paragraph.style.padding='15px';
+paragraph.style.borderRadius='10px'
+paragraph.style.borderRadius='60px 5px 60px 5px'
+paragraph.style.fontWeight='bold'
 
-//10//
-let info10 = document.getElementById("info10");
-info10.innerHTML=`<strong>I Love angular</strong>`
+//if we want to select list then in queryselector that only selects the first occurancy for ex its select js only 
 
+let list=document.querySelector('.list-group-item')
+cl(list)
 
-//InnerText
+//if we want to select specific li for ex node then...we use nth child selector
 
-//  1
-        let info01 = document.getElementById("info01");
-        cl(info01.innerText);
+let list01=document.querySelector('li:nth-child(4)')
+cl(list01); 
 
+//first list 2nd li
+let list1=document.querySelector('#skills li:nth-child(2)')
+cl(list1)
 
-        // 2
-        let info02 = document.getElementById("info02");
-        cl(info02.innerText);
+//second list 3rd li
+let list2=document.querySelector('#hobbie li:nth-child(3)')
+cl(list2);
 
+//if i want to add classes on it 
 
-        // Ex 3: Change existing text
-        let info03 = document.getElementById("info03");
-        info03.innerText = `I am learning JavaScript`;
-        cl(info03.innerText);
+list2.classList.add("bg-success")
+list1.classList.add("bg-primary")
 
+//multiple selection methods: multiple document object
 
-        // Ex4
-        let info04 = document.getElementById("info04");
-        cl(info04.innerText);
-
-
-        // Ex 5: Replace text
-        let info05 = document.getElementById("info05");
-        info05.innerText = `Welcome to Web Development`;
-        cl(info05.innerText);
+//1)
+// document.getElementsByClassName(css:class) >> HTMLcollection (multiple doc obj)
 
 
-        // Ex 6: Get text from multiple paragraphs
-        let info06 = document.getElementById("info06");
-        cl(info06.innerText);
+let lists=document.getElementsByClassName('list-group-item') //HTMLCollection
+cl(lists);
 
+//Array
+let arrLi=[...document.getElementsByClassName('list-group-item') ]//Array
+cl(arrLi);
 
-        // Ex 7: Set HTML-like text
-        let info07 = document.getElementById("info07");
-        info07.innerText = `<i>Hello JavaScript</i>`;
-        cl(info07.innerText);
+let arrLi1=Array.from(document.getElementsByClassName('list-group-item')) //Array
+cl(arrLi1);
 
+//if we want to add class on that 
 
-        // Ex 8: Change content inside div
-        let info08 = document.getElementById("info08");
-        info08.innerText = `My Course is MCA`;
-        cl(info08.innerText);
+for(let i=0;i<lists.length;i++){
+    lists[i].classList.add('text-dark')
+}
 
-        //Ex 9
+//
+let list02=document.getElementsByTagName('li')
+cl(list02);
 
-        let info09 = document.getElementById("info09");
-        info09.innerText = `<strong>Hello All of you</strong>`;
-        cl(info09.innerText);
+let list03=[...document.getElementsByTagName('li')];
+cl(list03);
+
+let list04=Array.from(document.getElementsByTagName('li'))
+cl(list04);
+
+list04.forEach((para=>{
+    para.classList.add('bg-info')
+    para.classList.add('font-italic')
+    para.classList.add('text-center')
+    para.classList.add('border-dark')
+    para.classList.add('font-weight-bold')
+}))
+
